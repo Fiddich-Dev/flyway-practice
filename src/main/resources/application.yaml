@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: flyway-practice
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/flyway_practice}
+    username: ${DB_USERNAME:insung}
+    password: ${DB_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      # 핵심. Hibernate 에게서 스키마 생성 권한을 뺏는다.
+      #   none     : 아무것도 안 함
+      #   validate : 엔티티와 실제 테이블이 맞는지 검사만. 틀리면 앱이 안 뜬다  <-- 우리가 쓰는 것
+      #   update   : 엔티티 보고 알아서 바꿈 (삭제/이름변경 불가, 실무 금지)
+      #   create / create-drop : 매번 갈아엎음 (데이터 증발)
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    # 마이그레이션 파일을 찾을 위치. 기본값이 classpath:db/migration 이라 사실 생략 가능하지만,
+    # 명시해두면 나중에 벤더별로 쪼갤 때(acttub 처럼) 어디를 고쳐야 하는지 분명해진다.
+    locations: classpath:db/migration
+
+    # [학습용 설정] 아래는 기본값이지만 무슨 스위치가 있는지 보라고 적어둔다.
+    # baseline-on-migrate: false   # 이미 테이블이 있는 DB에 Flyway 를 나중에 붙일 때 true
+    # validate-on-migrate: true    # checksum 검사 여부. false 로 끄지 말 것(사고의 근원)
+    # out-of-order: false          # 뒤늦게 낮은 버전이 들어와도 실행할지. 기본 false 가 안전
+
+logging:
+  level:
+    # Flyway 가 무슨 판단을 하는지 전부 찍어준다. 학습이 끝나면 지워도 된다.
+    org.flywaydb: DEBUG
