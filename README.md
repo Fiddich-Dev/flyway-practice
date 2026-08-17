@@ -6,6 +6,15 @@ Spring Boot + Flyway 학습용 연습장. 개념을 읽는 게 아니라 **직�
 - PostgreSQL (로컬 `flyway_practice` DB)
 - `ddl-auto: validate` + Flyway 조합 — 실무에서 쓰는 그 구성
 
+## 📖 먼저 읽을 것
+
+**[1단계 — 데이터베이스에도 git을 붙이는 법](docs/2026-08-18-explanation-flyway-basics.html)**
+(내려받아 브라우저로 열면 된다. 이해도 점검 퀴즈 5문항 포함)
+
+`ddl-auto`의 한계에서 출발해 Flyway의 동작 원리, `flyway_schema_history` 구조,
+checksum이 과거를 봉인하는 이유, 그리고 이 프로젝트의 파일 구성까지 다룬다.
+실제 사례로 `acttub-backend`의 V1~V12를 인용한다.
+
 ## 사전 준비
 
 ```bash
