@@ -25,27 +25,8 @@
     --code-bg: #f7f7f3;
     --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #17171a;
-      --bg-soft: #1f1f24;
-      --bg-card: #1e1e23;
-      --text: #e9e9ec;
-      --text-dim: #a9a9b4;
-      --text-faint: #7b7b86;
-      --border: #303038;
-      --border-strong: #43434e;
-      --accent: #6fbfb6;
-      --accent-soft: #1c2f2e;
-      --warn: #d9a256;
-      --warn-soft: #2e2519;
-      --danger: #e08b83;
-      --danger-soft: #2f1e1d;
-      --ok: #7fc492;
-      --ok-soft: #1b2a1f;
-      --code-bg: #1a1a1f;
-    }
-  }
+  /* 라이트 모드로 고정한다. 시스템이 다크 모드여도 이 문서는 밝게 보인다. */
+  html { color-scheme: light; }
 
   * { box-sizing: border-box; }
 
